@@ -19,6 +19,7 @@ import java.io.IOException;
 
 import android.util.Log;
 import android.view.Surface;
+import android.content.res.Configuration;
 
 /**
  * A simple wrapper around a Camera and a SurfaceView that renders a centered preview of the Camera
@@ -44,7 +45,6 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback,
 	private Camera.Parameters mParams = null;	
 	private int mCameraId;
 
-	private boolean mRotated = false;
 	private boolean mFocusModeOn;
 
 	private OnQrDecodedListener mOnQrDecodedListener;
@@ -121,7 +121,8 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback,
 			int previewHeight = height;
 
 			if (mPreviewSize != null) {
-				if (mRotated) {
+				Configuration conf = getResources().getConfiguration();
+				if (conf.orientation == conf.ORIENTATION_LANDSCAPE) {
 					previewWidth = mPreviewSize.width;
 					previewHeight = mPreviewSize.height;
 				} else {
@@ -202,11 +203,10 @@ public class CameraPreview extends ViewGroup implements SurfaceHolder.Callback,
 
 		int degrees = 0;
 		switch (rotation) {
-			case Surface.ROTATION_0: degrees = 0; mRotated = false; break;
-			case Surface.ROTATION_90: degrees = 90; mRotated = true; break;
-			case Surface.ROTATION_180: degrees = 180; mRotated = false; break;
-			case Surface.ROTATION_270: degrees = 270; mRotated = true; break;
-			default: mRotated = true;
+			case Surface.ROTATION_0: degrees = 0; break;
+			case Surface.ROTATION_90: degrees = 90; break;
+			case Surface.ROTATION_180: degrees = 180; break;
+			case Surface.ROTATION_270: degrees = 270; break;
 		}
 
 		Log.d(tag, "Camera rotated: " + degrees + " degrees");
