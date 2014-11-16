@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Obsqr</string>
+
+	<!-- Help prompts -->
+	<string name="action_text">Копировать</string>
+	<string name="action_contact">Просмотреть контакт</string>
+	<string name="action_market">Открыть приложение</string>
+	<string name="action_phone">Сделать вызов</string>
+	<string name="action_geo">Посмотреть на карте</string>
+	<string name="action_sms">Отправить сообщение</string>
+	<string name="action_email">Отправить письмо</string>
+	<string name="action_url">Открыть</string>
+	<string name="action_wifi">Подключиться</string>
+
+	<!-- QR types -->
+	<string name="title_text">Текст</string>
+	<string name="title_contact">Контактная информация</string>
+	<string name="title_market">Приложение на Маркете</string>
+	<string name="title_phone">Телефонный номер</string>
+	<string name="title_geo">Географические координаты</string>
+	<string name="title_sms">SMS-сообщение</string>
+	<string name="title_email">Электронная почта</string>
+	<string name="title_url">Web-страница</string>
+	<string name="title_wifi">Точка доступа WiFi</string>
+
+	<string name="unsupported_data_text">Тип данных не поддерживается</string>
+
+	<!-- Plain text -->
+	<string name="text_qr_action_name">Текст скопирован в буфер обмена</string>
+
+	<!-- Contact information -->
+	<string name="contact_qr_name_title">Имя:</string>
+	<string name="contact_qr_phone_title">Телефон:</string>
+	<string name="contact_qr_address_title">Адрес:</string>
+	<string name="contact_qr_email_title">Электронная почта:</string>
+	<string name="contact_qr_company_title">Организация:</string>
+
+	<!-- Geolocation -->
+	<string name="geo_qr_title_title">Место:</string>
+	<string name="geo_qr_latitude_title">Широта:</string>
+	<string name="geo_qr_latitude_south">ю.ш.</string>
+	<string name="geo_qr_latitude_north">с.ш.</string>
+	<string name="geo_qr_longitude_title">Долгота:</string>
+	<string name="geo_qr_longitude_west">з.д.</string>
+	<string name="geo_qr_longitude_east">в.д.</string>
+	<string name="geo_qr_altitude_title">Высота:</string>
+	<string name="geo_qr_altitude_suffix">метров</string>
+
+	<!-- SMS -->
+	<string name="sms_qr_phone_title">Телефонный номер:</string>
+	<string name="sms_qr_message_title">Сообщение:</string>
+
+	<!-- Email -->
+	<string name="email_qr_send_dlg_title">Отправить письмо с помощью…</string>
+
+	<!-- WiFi-->
+	<string name="wifi_qr_security_title">Безопасность</string>
+	<string name="wifi_qr_ssid_title">SSID сети</string>
+	<string name="wifi_qr_password_title">Пароль</string>
+
+	<!-- Dialogs and alerts -->
+	<string name="dlg_alert_msg">Ошибка при открытии камеры</string>
+	<string name="dlg_alert_ok_btn_caption">Завершить</string>
+	<string name="dlg_alert_cancel_btn_caption">Отмена</string>
+
+	<string name="alert_msg_invalid_market_link">Ошибка при открытии Google Play</string>
+	<string name="alert_msg_activity_not_found">Приложение не найдено</string>
+	<string name="alert_msg_wifi_connected">Соединение установлено</string>
+	<string name="alert_msg_wifi_failed">Не удалось подключиться к сети</string>
+</resources>
