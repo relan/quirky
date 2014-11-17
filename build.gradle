@@ -52,30 +52,6 @@ android {
 		}
 	}
 
-	productFlavors {
-		x86 {
-			ndk {
-				abiFilter "x86"
-			}
-		}
-		mips {
-			ndk {
-				abiFilter "mips"
-			}
-		}
-		armv7 {
-			ndk {
-				abiFilter "armeabi-v7a"
-			}
-		}
-		arm {
-			ndk {
-				abiFilter "armeabi"
-			}
-		}
-		fat
-	}
-
 	lintOptions {
 		abortOnError false
 	}
@@ -93,7 +69,7 @@ if (project.hasProperty('storeFile') &&
 	android.buildTypes.release.signingConfig = null
 }
 
-task appStart(type: Exec, dependsOn: ':installArmDebug') {
+task appStart(type: Exec, dependsOn: ':installDebug') {
 	commandLine 'adb', 'shell', 'am', 'start', '-n', 'trikita.obsqr/.ObsqrActivity'
 }
 
