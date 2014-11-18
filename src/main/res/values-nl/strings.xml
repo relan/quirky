@@ -56,12 +56,12 @@
 	<string name="email_qr_send_dlg_title">Email verstuurd via…</string>
 
 	<!-- WiFi-->
-	<string name="wifi_qr_security_title">Veiligheid</string>
-	<string name="wifi_qr_ssid_title">Netzwerkname</string>
-	<string name="wifi_qr_password_title">Wachtwoord</string>
+	<string name="wifi_qr_security_title">Veiligheid:</string>
+	<string name="wifi_qr_ssid_title">Netzwerkname:</string>
+	<string name="wifi_qr_password_title">Wachtwoord:</string>
 
 	<!-- Dialogs and alerts -->
-	<string name="dlg_alert_msg">Kon geen camera openen.</string>
+	<string name="dlg_alert_msg">Kon geen camera openen</string>
 	<string name="dlg_alert_ok_btn_caption">OK</string>
 
 	<string name="alert_msg_invalid_market_link">Kon geen Google Play openen</string>

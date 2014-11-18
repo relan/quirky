@@ -56,9 +56,9 @@
 	<string name="email_qr_send_dlg_title">Skickade e-post med…</string>
 
 	<!-- WiFi-->
-	<string name="wifi_qr_security_title">Säkerhet</string>
-	<string name="wifi_qr_ssid_title">Nätverksnamn</string>
-	<string name="wifi_qr_password_title">Lösenord</string>
+	<string name="wifi_qr_security_title">Säkerhet:</string>
+	<string name="wifi_qr_ssid_title">Nätverksnamn:</string>
+	<string name="wifi_qr_password_title">Lösenord:</string>
 
 	<!-- Dialogs and alerts -->
 	<string name="dlg_alert_msg">Kunde inte öppna någon kamera</string>

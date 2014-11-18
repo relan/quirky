@@ -8,7 +8,7 @@
 	<string name="action_market">Get on Google Play</string>
 	<string name="action_phone">Open dialer</string>
 	<string name="action_geo">View on map</string>
-	<string name="action_sms">Send sms</string>
+	<string name="action_sms">Send SMS</string>
 	<string name="action_email">Send email</string>
 	<string name="action_url">Open</string>
 	<string name="action_wifi">Connect</string>
@@ -55,9 +55,9 @@
 	<string name="email_qr_send_dlg_title">Sent mail via…</string>
 
 	<!-- WiFi-->
-	<string name="wifi_qr_security_title">Security</string>
-	<string name="wifi_qr_ssid_title">Network SSID</string>
-	<string name="wifi_qr_password_title">Password</string>
+	<string name="wifi_qr_security_title">Security:</string>
+	<string name="wifi_qr_ssid_title">Network SSID:</string>
+	<string name="wifi_qr_password_title">Password:</string>
 
 	<!-- Dialogs and alerts -->
 	<string name="dlg_alert_msg">Failed to open any camera</string>
