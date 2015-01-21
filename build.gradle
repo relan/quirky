@@ -3,23 +3,23 @@ buildscript {
 		mavenCentral()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:0.11.1+'
+		classpath 'com.android.tools.build:gradle:1.0.+'
 	}
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	compile 'com.jakewharton:butterknife:5.1.1+'
+	compile 'com.jakewharton:butterknife:6.0.+'
 }
 
 android {
 	compileSdkVersion 'android-21'
-	buildToolsVersion '21.1.1'
+	buildToolsVersion '21.1.2'
 
 	defaultConfig {
 		minSdkVersion 9
@@ -34,13 +34,10 @@ android {
 
 	buildTypes {
 		release {
-			runProguard false
-			/*proguardFile getDefaultProguardFile('proguard-android.txt')*/
+			minifyEnabled true
+			proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+			proguardFile 'proguard.txt'
 			signingConfig signingConfigs.release
-			applicationVariants.all { variant ->
-				def file = variant.outputFile
-				variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + defaultConfig.versionName + ".apk"))
-			}
 		}
 	}
 
