@@ -51,7 +51,7 @@
 				android:paddingRight="16dp"
 				android:paddingBottom="16dp"
 				>
-				<trikita.obsqr.MaterialButton
+				<Button
 					android:id="@+id/tv_horizontal_cancel"
 					android:layout_width="wrap_content"
 					android:layout_height="36dp"
@@ -62,8 +62,9 @@
 					android:minWidth="88dp"
 					android:paddingLeft="16dp"
 					android:paddingRight="16dp"
+					style="?android:attr/borderlessButtonStyle"
 					/>
-				<trikita.obsqr.MaterialButton
+				<Button
 					android:minWidth="88dp"
 					android:id="@+id/tv_horizontal_action"
 					android:layout_width="wrap_content"
@@ -73,6 +74,7 @@
 					android:textColor="#8a03a9f4"
 					android:paddingLeft="16dp"
 					android:paddingRight="16dp"
+					style="?android:attr/borderlessButtonStyle"
 					/>
 			</LinearLayout>
 			<LinearLayout
@@ -85,7 +87,7 @@
 				android:paddingRight="16dp"
 				android:paddingBottom="16dp"
 				>
-				<trikita.obsqr.MaterialButton
+				<Button
 					android:id="@+id/tv_vertical_action"
 					android:layout_width="wrap_content"
 					android:layout_height="36dp"
@@ -94,8 +96,9 @@
 					android:textColor="#8a03a9f4"
 					android:paddingLeft="16dp"
 					android:paddingRight="16dp"
+					style="?android:attr/borderlessButtonStyle"
 					/>
-				<trikita.obsqr.MaterialButton
+				<Button
 					android:id="@+id/tv_vertical_cancel"
 					android:layout_width="wrap_content"
 					android:layout_height="36dp"
@@ -105,6 +108,7 @@
 					android:text="@string/dlg_alert_cancel_btn_caption"
 					android:paddingLeft="16dp"
 					android:paddingRight="16dp"
+					style="?android:attr/borderlessButtonStyle"
 					/>
 			</LinearLayout>
 		</LinearLayout>
