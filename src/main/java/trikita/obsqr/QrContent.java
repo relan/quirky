@@ -7,6 +7,9 @@ import android.util.Log;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import android.content.Intent;
+import android.content.ClipboardManager;
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.provider.ContactsContract;
 import android.widget.Toast;
 import java.util.List;
@@ -114,7 +117,10 @@ public abstract class QrContent {
 
 		public void action() {
 			Log.d(tag, "action: copy to clipboard " + mText);
-			ClipboardManager.newInstance(mContext).setText(mText);
+			ClipboardManager clippy = (ClipboardManager)
+					mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+			clippy.setPrimaryClip(ClipData.newPlainText(
+					ClipDescription.MIMETYPE_TEXT_PLAIN, mText));
 			Toast.makeText(mContext, mContext.getString(R.string.text_qr_action_name),
 					Toast.LENGTH_LONG).show();
 		}
