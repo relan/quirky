@@ -23,7 +23,7 @@
 	<string name="title_sms">SMS</string>
 	<string name="title_email">Email</string>
 	<string name="title_url">Link</string>
-	<string name="title_wifi">Punto di accesso WiFi</string>
+	<string name="title_wifi">Punto di accesso Wi-Fi</string>
 
 	<string name="unsupported_data_text">Formato dati non supportato</string>
 

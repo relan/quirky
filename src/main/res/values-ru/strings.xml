@@ -22,7 +22,7 @@
 	<string name="title_sms">SMS-сообщение</string>
 	<string name="title_email">Электронная почта</string>
 	<string name="title_url">Web-страница</string>
-	<string name="title_wifi">Точка доступа WiFi</string>
+	<string name="title_wifi">Точка доступа Wi-Fi</string>
 
 	<string name="unsupported_data_text">Тип данных не поддерживается</string>
 
