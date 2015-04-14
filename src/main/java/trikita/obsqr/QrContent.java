@@ -2,7 +2,6 @@ package trikita.obsqr;
 
 import android.view.View;
 import android.content.Context;
-import android.widget.TextView;
 import android.util.Log;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,14 +40,6 @@ public abstract class QrContent {
 
 	public String getAction() {
 		return mContext.getString(getActionStringId());
-	}
-
-	public View render() {
-		TextView tv = new TextView(mContext);
-		tv.setTextSize(14);
-		tv.setTextColor(0x8a000000);
-		tv.setText(mText);
-		return tv;
 	}
 
 	public String getText() {

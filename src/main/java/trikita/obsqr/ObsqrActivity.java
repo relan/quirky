@@ -2,15 +2,8 @@ package trikita.obsqr;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.*;
 import android.content.DialogInterface;
@@ -18,104 +11,52 @@ import android.content.DialogInterface;
 public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
 	private final static String tag = "ObsqrActivity";
-
-	public final static int MAX_HORIZONTAL_BUTTON_TEXT_LENGTH = 12;
-
 	@InjectView(R.id.surface) CameraPreview mCameraPreview;
-	@InjectView(R.id.container) ViewGroup mContainer;
-	@InjectView(R.id.tv_title) TextView mQrTitleView;
-	@InjectView(R.id.dialog_content) ViewGroup mDialogContent;
-
-	@InjectView(R.id.vertical_buttons_container) ViewGroup mVerticalButtonsContainer;
-	@InjectView(R.id.tv_vertical_action) TextView mVerticalActionView;
-	@InjectView(R.id.tv_vertical_cancel) TextView mVerticalCancelView;
-
-	@InjectView(R.id.horizontal_buttons_container) ViewGroup mHorizontalButtonsContainer;
-	@InjectView(R.id.tv_horizontal_action) TextView mHorizontalActionView;
-	@InjectView(R.id.tv_horizontal_cancel) TextView mHorizontalCancelView;
-
-	private QrContent mQrContent = null;
-
 	private String mLastKnownContent = "";
+	private AlertDialog mDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_camera);
 		ButterKnife.inject(this);
-
-		mHorizontalCancelView.setText(mHorizontalCancelView.getText().toString().toUpperCase());
-		mVerticalCancelView.setText(mVerticalCancelView.getText().toString().toUpperCase());
 		mCameraPreview.setOnQrDecodedListener(this);
-	}
-
-	@OnClick({R.id.tv_vertical_action, R.id.tv_horizontal_action})
-	public void onActionClick(View v) {
-		if (mQrContent != null) {
-			try {
-				mQrContent.action();
-			} catch (ActivityNotFoundException e) {
-				Toast.makeText(this, getString(R.string.alert_msg_activity_not_found),
-						Toast.LENGTH_LONG).show();
-			}
-		}
-	}
-
-	@OnClick({R.id.container, R.id.tv_vertical_cancel, R.id.tv_horizontal_cancel})
-	public void onDialogCancelClick(View v) {
-		cancel();
 	}
 
 	@Override
 	public void onQrDecoded(String s) {
-		if (mLastKnownContent.equals(s) && mQrContent == null) { // Same content was cancelled
+		if (mLastKnownContent.equals(s))
 			return;
-		}
 		mLastKnownContent = s;
 
-		mQrContent = QrContent.from(this, s);
+		// parse QR content string
+		final QrContent mQrContent = QrContent.from(this, s);
 
 		// show dialog with QR content
-		mContainer.setVisibility(View.VISIBLE);
-
-		mQrTitleView.setText(mQrContent.getTitle());
-
-		String action = mQrContent.getAction();
-
-		int maxHorizontalTextLength = MAX_HORIZONTAL_BUTTON_TEXT_LENGTH;
-			
-		if (action.length() < maxHorizontalTextLength) {
-			mHorizontalButtonsContainer.setVisibility(View.VISIBLE);
-			mVerticalButtonsContainer.setVisibility(View.GONE);
-			mHorizontalActionView.setText(mQrContent.getAction().toUpperCase());
-		} else {
-			mVerticalButtonsContainer.setVisibility(View.VISIBLE);
-			mHorizontalButtonsContainer.setVisibility(View.GONE);
-			mVerticalActionView.setText(mQrContent.getAction().toUpperCase());
-		}
-
-		View v = mQrContent.render();
-		mDialogContent.removeAllViews();
-		mDialogContent.addView(v);
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(mQrContent.getTitle());
+		builder.setMessage(mQrContent.getText());
+			String action = mQrContent.getAction();
+		builder.setPositiveButton(mQrContent.getAction(),
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						mQrContent.action();
+					}
+				});
+		builder.setNegativeButton(R.string.dlg_alert_cancel_btn_caption,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// do nothing
+					}
+				});
+		if (mDialog != null)
+			mDialog.cancel();
+		mDialog = builder.create();
+		mDialog.show();
 	}
 
 	@Override
 	public void onQrNotFound() {
-		mLastKnownContent = "";
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (mQrContent == null) {
-			return super.onKeyDown(keyCode, event);
-		}
-		// Pressing DPAD, Volume keys or Camera key would call the QR action
-		switch (keyCode) {
-			case KeyEvent.KEYCODE_DPAD_CENTER:
-				mQrContent.action();
-				return true;
-		}
-		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
@@ -135,23 +76,7 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		super.onPause();
 		Log.d(tag, "onPause()");
 
-		cancel();
 		mCameraPreview.releaseCamera();
-	}
-
-	@Override
-	public void onBackPressed() {
-		Log.d(tag, "onBackPressed()");
-		if (mQrContent != null) {
-			cancel();
-		} else {
-			super.onBackPressed();
-		}
-	}
-
-	private void cancel() {
-		mContainer.setVisibility(View.INVISIBLE);
-		mQrContent = null;
 	}
 
 	/** 
