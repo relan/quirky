@@ -19,9 +19,6 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 
 	private final static String tag = "ObsqrActivity";
 
-	/* Display decoded QR content on screen for 3 sec */
-	private final static int DURATION_OF_KEEPING_TEXT_ON = 3000; 
-
 	public final static int MAX_HORIZONTAL_BUTTON_TEXT_LENGTH = 12;
 
 	@InjectView(R.id.surface) CameraPreview mCameraPreview;
@@ -40,8 +37,6 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 	private QrContent mQrContent = null;
 
 	private String mLastKnownContent = "";
-
-	private final Handler mKeepTextOnScreenHandler = new Handler();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +72,6 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 			return;
 		}
 		mLastKnownContent = s;
-		mKeepTextOnScreenHandler.removeCallbacksAndMessages(null);
 
 		mQrContent = QrContent.from(this, s);
 
@@ -103,13 +97,6 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		View v = mQrContent.render();
 		mDialogContent.removeAllViews();
 		mDialogContent.addView(v);
-
-		// display decoded QR content on screen for 3 sec and hide it
-		mKeepTextOnScreenHandler.postDelayed(new Runnable() {
-			public void run() {
-				cancel();
-			}
-		}, DURATION_OF_KEEPING_TEXT_ON);
 	}
 
 	@Override
@@ -163,7 +150,6 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 	}
 
 	private void cancel() {
-		mKeepTextOnScreenHandler.removeCallbacksAndMessages(null);
 		mContainer.setVisibility(View.INVISIBLE);
 		mQrContent = null;
 	}
