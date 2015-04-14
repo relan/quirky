@@ -64,11 +64,9 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		super.onResume();
 		Log.d(tag, "onResume()");
 		
-		boolean success = mCameraPreview.acquireCamera(getWindowManager()
-			.getDefaultDisplay().getRotation());
-		if (!success) {
+		if (!mCameraPreview.acquireCamera(getWindowManager()
+				.getDefaultDisplay().getRotation()))
 			openAlertDialog();
-		}
 	}
 
 	@Override
@@ -85,16 +83,16 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 	 */
 	private void openAlertDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.dlg_alert_msg))
-			.setCancelable(false)
-			.setPositiveButton(getString(R.string.dlg_alert_ok_btn_caption),
-					new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					ObsqrActivity.this.finish();
-					dialog.dismiss();
-				}
-			});
-		AlertDialog alert = builder.create();	
+		builder.setMessage(R.string.dlg_alert_msg);
+		builder.setCancelable(false);
+		builder.setPositiveButton(R.string.dlg_alert_ok_btn_caption,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						ObsqrActivity.this.finish();
+						dialog.dismiss();
+					}
+				});
+		AlertDialog alert = builder.create();
 		alert.show();
 	}
 }
