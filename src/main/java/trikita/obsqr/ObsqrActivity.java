@@ -16,9 +16,15 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 	private AlertDialog mDialog;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	public void onCreate(Bundle state) {
+		super.onCreate(state);
 		setContentView(R.layout.act_camera);
+		if (state != null) {
+			if (state.getBoolean("dialogShowing"))
+				onQrDecoded(state.getString("content"));
+			else
+				mLastKnownContent = state.getString("content");
+		}
 		mCameraPreview = (CameraPreview) findViewById(R.id.surface);
 		mCameraPreview.setOnQrDecodedListener(this);
 	}
@@ -79,6 +85,16 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		Log.d(tag, "onPause()");
 
 		mCameraPreview.releaseCamera();
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle state) {
+		super.onSaveInstanceState(state);
+		Log.d(tag, "onSaveInstanceState()");
+
+		state.putString("content", mLastKnownContent);
+		state.putBoolean("dialogShowing",
+				mDialog == null ? false : mDialog.isShowing());
 	}
 
 	/** 
