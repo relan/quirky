@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 
 import butterknife.*;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
@@ -40,7 +42,11 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		builder.setPositiveButton(mQrContent.getAction(),
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						mQrContent.action();
+						try {
+							mQrContent.action();
+						} catch (ActivityNotFoundException e) {
+							showToastActivityNotFound();
+						}
 					}
 				});
 		builder.setNegativeButton(R.string.dlg_alert_cancel_btn_caption,
@@ -94,5 +100,10 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 				});
 		AlertDialog alert = builder.create();
 		alert.show();
+	}
+
+	private void showToastActivityNotFound() {
+		Toast.makeText(this, R.string.alert_msg_activity_not_found,
+				Toast.LENGTH_LONG).show();
 	}
 }
