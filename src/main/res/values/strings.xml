@@ -61,9 +61,6 @@
 
 	<!-- Dialogs and alerts -->
 	<string name="dlg_alert_msg">Failed to open any camera</string>
-	<string name="dlg_alert_ok_btn_caption">OK</string>
-	<string name="dlg_alert_cancel_btn_caption">Cancel</string>
-
 	<string name="alert_msg_invalid_market_link">Failed to open Google Play</string>
 	<string name="alert_msg_activity_not_found">No application found</string>
 	<string name="alert_msg_wifi_connected">Connected successfully</string>

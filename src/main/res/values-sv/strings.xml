@@ -62,7 +62,5 @@
 
 	<!-- Dialogs and alerts -->
 	<string name="dlg_alert_msg">Kunde inte öppna någon kamera</string>
-	<string name="dlg_alert_ok_btn_caption">OK</string>
-
 	<string name="alert_msg_invalid_market_link">Kunde inte öppna Google Play</string>
 </resources>

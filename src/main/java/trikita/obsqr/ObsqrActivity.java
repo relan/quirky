@@ -47,7 +47,7 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 						}
 					}
 				});
-		builder.setNegativeButton(R.string.dlg_alert_cancel_btn_caption,
+		builder.setNegativeButton(android.R.string.cancel,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						// do nothing
@@ -89,7 +89,7 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage(R.string.dlg_alert_msg);
 		builder.setCancelable(false);
-		builder.setPositiveButton(R.string.dlg_alert_ok_btn_caption,
+		builder.setPositiveButton(android.R.string.ok,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						ObsqrActivity.this.finish();

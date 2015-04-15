@@ -62,7 +62,5 @@
 
 	<!-- Dialogs and alerts -->
 	<string name="dlg_alert_msg">Herhangi bir kamera açılamadı</string>
-	<string name="dlg_alert_ok_btn_caption">Tamam</string>
-
 	<string name="alert_msg_invalid_market_link">Konnte Google Play nicht öffnen</string>
 </resources>
