@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
-
-import butterknife.*;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.widget.Toast;
@@ -13,7 +11,7 @@ import android.widget.Toast;
 public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
 	private final static String tag = "ObsqrActivity";
-	@InjectView(R.id.surface) CameraPreview mCameraPreview;
+	private CameraPreview mCameraPreview;
 	private String mLastKnownContent = "";
 	private AlertDialog mDialog;
 
@@ -21,7 +19,7 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_camera);
-		ButterKnife.inject(this);
+		mCameraPreview = (CameraPreview) findViewById(R.id.surface);
 		mCameraPreview.setOnQrDecodedListener(this);
 	}
 
