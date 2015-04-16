@@ -12,7 +12,7 @@ size_t iconv (iconv_t cd, char **inbuf, size_t *inbytesleft,
 	size_t sz = *inbytesleft;
 	memcpy(*outbuf, *inbuf, sz);
 
-	__android_log_print(ANDROID_LOG_DEBUG, "zbar", "convert: %s, sz=%d", *inbuf, sz);
+	__android_log_print(ANDROID_LOG_DEBUG, "zbar", "convert: %s, sz=%zu", *inbuf, sz);
 
 	*inbuf += sz;
 	*outbuf += sz;
