@@ -20,8 +20,8 @@ android {
 	defaultConfig {
 		minSdkVersion 14
 		targetSdkVersion 22
-		versionCode 13
-		versionName "2.7"
+		versionCode 1
+		versionName "0.0"
 	}
 
 	signingConfigs {
@@ -61,8 +61,3 @@ if (project.hasProperty('storeFile') &&
 } else {
 	android.buildTypes.release.signingConfig = null
 }
-
-task appStart(type: Exec, dependsOn: ':installDebug') {
-	commandLine 'adb', 'shell', 'am', 'start', '-n', 'trikita.obsqr/.ObsqrActivity'
-}
-

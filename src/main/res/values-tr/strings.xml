@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Obsqr</string>
-
 	<!-- Turkish translation by ncdlek @ XDA -->	
 	<!-- Help prompts -->
 	<!--<string name="action_text">Metni kopyalamak için dokunun</string>-->

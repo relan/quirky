@@ -1,4 +1,4 @@
-package trikita.obsqr;
+package net.airpost.relan.quirky;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,9 +8,9 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
-public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecodedListener {
+public class MainActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
-	private final static String tag = "ObsqrActivity";
+	private final static String tag = "MainActivity";
 	private CameraPreview mCameraPreview;
 	private String mLastKnownContent = "";
 	private AlertDialog mDialog;
@@ -108,7 +108,7 @@ public class ObsqrActivity extends Activity implements CameraPreview.OnQrDecoded
 		builder.setPositiveButton(android.R.string.ok,
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						ObsqrActivity.this.finish();
+						MainActivity.this.finish();
 						dialog.dismiss();
 					}
 				});

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Obsqr</string>
-
 	<!-- Portuguese translation by diegosps @ XDA -->
 	<!-- Help prompts -->
 	<!--<string name="action_text">Toque para copiar o texto.</string>-->

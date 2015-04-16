@@ -1,4 +1,4 @@
-package trikita.obsqr;
+package net.airpost.relan.quirky;
 
 import android.content.Context;
 import android.widget.ScrollView;

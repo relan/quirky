@@ -1,4 +1,4 @@
-package trikita.obsqr;
+package net.airpost.relan.quirky;
 
 import static junit.framework.Assert.*;
 import android.test.AndroidTestCase;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Obsqr</string>
+	<string name="app_name" translatable="false">Quirky</string>
 
 	<!-- Help prompts -->
 	<string name="action_text">Copy to clipboard</string>

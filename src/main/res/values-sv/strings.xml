@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Obsqr</string>
-
 	<!-- Swedish translation by jakob@oneegg.se -->
 	<!--[> Help prompts <]-->
 	<!--<string name="action_text">Tryck för att kopiera texten till urklippet</string>-->

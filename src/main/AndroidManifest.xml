@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="trikita.obsqr"
+	package="net.airpost.relan.quirky"
 	android:installLocation="auto">
 
 	<uses-permission android:name="android.permission.CAMERA" />
@@ -14,7 +14,7 @@
 		android:allowBackup="true"
 		android:icon="@drawable/ic_launcher"
 		android:theme="@style/AppTheme">
-		<activity android:name="ObsqrActivity"
+		<activity android:name="MainActivity"
 			android:launchMode="singleTop"
 			android:label="@string/app_name">
 			<intent-filter>
