@@ -4,7 +4,7 @@
 	<string name="action_text">Копировать</string>
 	<string name="action_contact">Просмотреть контакт</string>
 	<string name="action_market">Открыть приложение</string>
-	<string name="action_phone">Сделать вызов</string>
+	<string name="action_phone">Позвонить</string>
 	<string name="action_geo">Посмотреть на карте</string>
 	<string name="action_sms">Отправить сообщение</string>
 	<string name="action_email">Отправить письмо</string>
