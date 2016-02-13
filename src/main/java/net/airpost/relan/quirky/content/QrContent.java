@@ -77,7 +77,7 @@ public abstract class QrContent {
 		} else if (s.matches(WifiContent.MATCH)) {
 			return new WifiContent(c, s);
 		} else {
-			return new QrMixedContent(c, s);
+			return new PlainTextContent(c, s);
 		}
 	}
 }

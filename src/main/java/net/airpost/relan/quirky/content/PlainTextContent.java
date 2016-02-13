@@ -8,9 +8,9 @@ import android.util.Log;
 import android.widget.Toast;
 import net.airpost.relan.quirky.R;
 
-class QrMixedContent extends QrContent {
+class PlainTextContent extends QrContent {
 
-	public QrMixedContent(Context c, String s) {
+	public PlainTextContent(Context c, String s) {
 		super(c, s);
 	}
 
