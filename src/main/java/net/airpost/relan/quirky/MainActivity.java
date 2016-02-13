@@ -7,6 +7,7 @@ import android.util.Log;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.widget.Toast;
+import net.airpost.relan.quirky.content.QrContent;
 
 public class MainActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
