@@ -7,11 +7,13 @@ import net.airpost.relan.quirky.R;
 
 class WebUrlContent extends QrContent {
 
-	public final static String MATCH =
-		"(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?";
-
 	public WebUrlContent(Context c, String s) {
 		super(c, s);
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "http://")
+			|| QrContent.matches(s, "https://");
 	}
 
 	public int getTitleStringId() { return R.string.title_url; }

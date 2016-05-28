@@ -10,8 +10,6 @@ import net.airpost.relan.quirky.R;
 
 class WifiContent extends QrContent {
 
-	public final static String MATCH = "WIFI:(.*)";
-
 	private String mType;
 	private String mNetworkSsid;
 	private String mPassword;
@@ -22,6 +20,10 @@ class WifiContent extends QrContent {
 		super(c, s);
 		mOriginalUri = s;
 		mText = toString();
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "wifi:");
 	}
 
 	public int getTitleStringId() { return R.string.title_wifi; }

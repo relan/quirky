@@ -28,8 +28,6 @@ public class QrContentTest extends AndroidTestCase {
 		assertTrue(content instanceof WebUrlContent);
 		content = QrContentFactory.from(getContext(), "https://example.com");
 		assertTrue(content instanceof WebUrlContent);
-		content = QrContentFactory.from(getContext(), "example.com");
-		assertTrue(content instanceof WebUrlContent);
 	}
 
 	public void testEmailMatcher() {

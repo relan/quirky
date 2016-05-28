@@ -6,11 +6,12 @@ import net.airpost.relan.quirky.R;
 
 class EmailContent extends QrContent {
 
-	// "^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$"
-	public final static String MATCH = "mailto:(.*)";
-
 	public EmailContent(Context c, String s) {
 		super(c, s);
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "mailto:");
 	}
 
 	public int getTitleStringId() { return R.string.title_email; }

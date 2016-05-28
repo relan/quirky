@@ -7,7 +7,6 @@ import net.airpost.relan.quirky.R;
 
 class GeoLocationContent extends QrContent {
 
-	public final static String MATCH = "geo:(.*)";
 	private boolean mIsValidData;
 	private String mOriginalGeoUri;
 
@@ -15,6 +14,10 @@ class GeoLocationContent extends QrContent {
 		super(c, s);
 		mOriginalGeoUri = s;
 		mText = toString();
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "geo:");
 	}
 
 	public int getTitleStringId() { return R.string.title_geo; }

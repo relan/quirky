@@ -9,8 +9,6 @@ import net.airpost.relan.quirky.R;
 
 class ContactContent extends QrContent {
 
-	public final static String MATCH = "MECARD:(.*)";
-
 	private String mName;
 	private String mPhone;
 	private String mAddress;
@@ -20,6 +18,10 @@ class ContactContent extends QrContent {
 	public ContactContent(Context c, String s) {
 		super(c, s);
 		mText = toString();
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "mecard:");
 	}
 
 	public int getTitleStringId() { return R.string.title_contact; }

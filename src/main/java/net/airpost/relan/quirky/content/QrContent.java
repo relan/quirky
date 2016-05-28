@@ -3,6 +3,7 @@ package net.airpost.relan.quirky.content;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public abstract class QrContent {
 
@@ -57,5 +58,9 @@ public abstract class QrContent {
 			}
 		}
 		return tokens;
+	}
+
+	protected static boolean matches(String s, String prefix) {
+		return s.toLowerCase(Locale.ROOT).startsWith(prefix);
 	}
 }

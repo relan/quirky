@@ -7,13 +7,16 @@ import net.airpost.relan.quirky.R;
 
 class PhoneNumberContent extends QrContent {
 
-	public final static String MATCH = "tel:(.*)";
 	private String mOriginalUri;
 
 	public PhoneNumberContent(Context c, String s) {
 		super(c, s);
 		mOriginalUri = s;
 		mText = s.substring(4);
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "tel:");
 	}
 
 	public int getTitleStringId() { return R.string.title_phone; }

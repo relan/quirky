@@ -11,7 +11,6 @@ import net.airpost.relan.quirky.R;
 
 class GooglePlayContent extends QrContent {
 
-	public final static String MATCH = "market://(.*)";
 	public final static String GOOGLEPLAY_ID = "market://details\\?id=(.*)";
 
 	public GooglePlayContent(Context c, String s) {
@@ -21,6 +20,10 @@ class GooglePlayContent extends QrContent {
 			m.find();
 			mText = m.group(1);
 		}
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "market://");
 	}
 
 	public int getTitleStringId() { return R.string.title_market; }

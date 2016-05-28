@@ -7,13 +7,16 @@ import net.airpost.relan.quirky.R;
 
 class SmsContent extends QrContent {
 
-	public final static String MATCH = "smsto:(.*)";
 	private String mOriginalUri;
 
 	public SmsContent(Context c, String s) {
 		super(c, s);
 		mOriginalUri = s;
 		mText = toString();
+	}
+
+	public static boolean matches(String s) {
+		return QrContent.matches(s, "smsto:");
 	}
 
 	public int getTitleStringId() { return R.string.title_sms; }

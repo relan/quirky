@@ -5,21 +5,21 @@ import android.content.Context;
 public abstract class QrContentFactory {
 
 	public static QrContent from(Context c, String s) {
-		if (s.matches(GooglePlayContent.MATCH)) {
+		if (GooglePlayContent.matches(s)) {
 			return new GooglePlayContent(c, s);
-		} else if (s.matches(WebUrlContent.MATCH)) {
+		} else if (WebUrlContent.matches(s)) {
 			return new WebUrlContent(c, s);
-		} else if (s.matches(EmailContent.MATCH)) {
+		} else if (EmailContent.matches(s)) {
 			return new EmailContent(c, s);
-		} else if (s.matches(PhoneNumberContent.MATCH)) {
+		} else if (PhoneNumberContent.matches(s)) {
 			return new PhoneNumberContent(c, s);
-		} else if (s.matches(SmsContent.MATCH)) {
+		} else if (SmsContent.matches(s)) {
 			return new SmsContent(c, s);
-		} else if (s.matches(ContactContent.MATCH)) {
+		} else if (ContactContent.matches(s)) {
 			return new ContactContent(c, s);
-		} else if (s.matches(GeoLocationContent.MATCH)) {
+		} else if (GeoLocationContent.matches(s)) {
 			return new GeoLocationContent(c, s);
-		} else if (s.matches(WifiContent.MATCH)) {
+		} else if (WifiContent.matches(s)) {
 			return new WifiContent(c, s);
 		} else {
 			return new PlainTextContent(c, s);
