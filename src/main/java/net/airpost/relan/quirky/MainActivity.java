@@ -8,6 +8,7 @@ import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.widget.Toast;
 import net.airpost.relan.quirky.content.QrContent;
+import net.airpost.relan.quirky.content.QrContentFactory;
 
 public class MainActivity extends Activity implements CameraPreview.OnQrDecodedListener {
 
@@ -37,7 +38,7 @@ public class MainActivity extends Activity implements CameraPreview.OnQrDecodedL
 		mLastKnownContent = s;
 
 		// parse QR content string
-		final QrContent mQrContent = QrContent.from(this, s);
+		final QrContent mQrContent = QrContentFactory.from(this, s);
 
 		// show dialog with QR content
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
